@@ -1,0 +1,24 @@
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    // "primary": (
+    //   "base": #21cee9,
+    // ),
+    // "success": (
+    //   "base": #71d46f,
+    // ),
+    // "warning": (
+    //   "base": #e6a23c,
+    // ),
+    // "danger": (
+    //   "base": #e34d59,
+    // ),
+    // "error": (
+    //   "base": #e34d59,
+    // ),
+    // "info": (
+    //   "base": #e7e7e7,
+    // ),
+  )
+);
+
+$my-box-shadow: 0px 0px 12px rgba(0, 0, 0, .12);
