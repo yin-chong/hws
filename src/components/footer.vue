@@ -6,8 +6,8 @@
                     <Position style="width: 2em; height: 2em; margin-right: 8px; color: #fff;" />
                     <div>
                         <div class="title">单位地址</div>
-                        <div class="info">北京市门头沟区永定镇冯村西里</div>
-                        <div class="info">国家心血管病中心</div>
+                        <div class="info">广州市天河区天河路600号</div>
+                        <div class="info">广州市肝病重点实验室</div>
                     </div>
                 </div>
             </el-col>
@@ -26,7 +26,7 @@
                     <Message style="width: 2em; height: 2em; margin-right: 8px; color: #fff;" />
                     <div>
                         <div class="title">邮政编码</div>
-                        <div class="info">202300</div>
+                        <div class="info">102300</div>
                     </div>
                 </div>
             </el-col>
@@ -54,9 +54,9 @@ import { Position, Message, Phone } from '@element-plus/icons-vue';
 
 <style lang="scss" scoped>
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    // position: fixed;
+    // bottom: 0;
+    // left: 0;
     width: 100%;
     padding: 40px 0;
     background: #272727;

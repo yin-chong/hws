@@ -1,53 +1,64 @@
 <template>
-  <div class="page">
-      <div class="form">
-        <!-- <el-button type="primary" size="default" @click="login">Login</el-button> -->
-        <el-form :model="form" label-width="auto" style="max-width: 500px">
-          <el-form-item label="User Code">
-            <el-input v-model="form.user_id" />
-          </el-form-item>
-          <el-form-item label="Password">
-            <el-input v-model="form.user_pwd" type="password" show-password />
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="login">Login</el-button>
-            </el-form-item>
-        </el-form>
+  <div class="main">
+    <div class="content row">
+      <div class="box">
+        <el-tabs v-model="activeName" stretch>
+          <el-tab-pane label="登录" name="login">
+            <div class="form" style="padding-top: 50px;">
+              <el-input v-model="username" placeholder="用户名" class="form-item"  size="large"></el-input>
+              <el-input v-model="password" placeholder="密码" class="form-item"  size="large"></el-input>
+              <el-button type="primary" style="margin-top: 40px; width: 80%;" color="#79063f">登录</el-button>
+            </div>
+          </el-tab-pane>
+          <el-tab-pane label="注册" name="register">
+            <div class="form">
+              <el-input v-model="username" placeholder="用户名" class="form-item"></el-input>
+              <el-input v-model="password" placeholder="密码" class="form-item"></el-input>
+              <el-input v-model="password" placeholder="确认密码" class="form-item"></el-input>
+              <el-input v-model="phone" placeholder="手机" class="form-item"></el-input>
+              <el-input v-model="phone" placeholder="手机验证码" class="form-item"><template #append>手机验证码</template></el-input>
+              <el-input v-model="email" placeholder="邮箱" class="form-item"></el-input>
+              <el-button type="primary" style="margin-top: 20px; width: 80%;" color="#79063f">注册</el-button>
+            </div>
+          </el-tab-pane>
+        </el-tabs>
       </div>
+      <img src="https://cvdrisk.com.cn/Content/Areas/ASCVD/rightpic.png" style="width: 783px; height: 430px;" alt="">
+    </div>
+    <myfooter></myfooter>
   </div>
 </template>
 
 <script setup>
-import router from "../router/index";
-const { proxy } = getCurrentInstance();
-const form = reactive({
-    user_pwd: '',
-    user_id: ''
-});
-const passwd = ref("1231");
-const login = async () => {
-//   const params = form;
-  const [err, res] = await proxy.$api.authenticate(form);
-  if (res && res.code == 200) {
-    router.replace({
-      name: "home",
-    });
-  }
-};
+import myfooter from "../components/footer.vue";
+const activeName = ref('login');
+const username = ref('');
+const password = ref('');
+const phone = ref('');
+const email = ref('');
 </script>
 
 <style lang="scss" scoped>
-.page {
-    width: 100%;
-    height: 100vh;
+.main {
+  background: #f0f0f0;
+}
+.content {
+  padding: 20px 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.box {
+  flex: 1;
+  min-width: 396px;
+  background: #fff;
 }
 .form {
-    position: relative;
-    margin: 20% auto;
-    width: 560px;
-    // height: 400px;
-    padding: 30px 40px;
-    border: 1px solid #999;
-    border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-item {
+  width: 80%;
+  margin: 20px 0 0;
 }
 </style>

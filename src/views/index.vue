@@ -8,20 +8,23 @@
     </div>
     <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick" stretch>
       <el-tab-pane label="风险评估" name="risk"><risk></risk></el-tab-pane>
-      <el-tab-pane label="项目介绍" name="introduce">Config</el-tab-pane>
-      <el-tab-pane label="健康指导" name="health">Role</el-tab-pane>
-      <el-tab-pane label="相关研究" name="research">Task</el-tab-pane>
-      <el-tab-pane label="关于我们" name="about">Task</el-tab-pane>
-      <el-tab-pane label="登录|注册" name="login">Task</el-tab-pane>
+      <el-tab-pane label="项目介绍" name="introduce"><introduce /></el-tab-pane>
+      <el-tab-pane label="健康指导" name="health"><health></health> </el-tab-pane>
+      <el-tab-pane label="相关研究" name="research"> <research></research> </el-tab-pane>
+      <el-tab-pane label="关于我们" name="about"><about></about> </el-tab-pane>
+      <el-tab-pane label="登录|注册" name="login"> <login></login> </el-tab-pane>
     </el-tabs>
-    <myfooter></myfooter>
   </div>
 </template>
 
 <script setup>
 // import router from '../router/index';
-import myfooter from '../components/footer.vue';
 import risk from './risk.vue';
+import introduce from './introduce.vue';
+import research from './research.vue';
+import health from './health.vue';
+import about from './about.vue';
+import login from './login.vue';
 let activeName = ref('risk')
 </script>
 
@@ -30,6 +33,9 @@ let activeName = ref('risk')
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  :deep(.el-tabs) {
+    --el-tabs-header-height: 55px;
+  }
   :deep(.el-tabs__item.is-active) {
     color: rgb(231, 71, 71);
   }
@@ -39,10 +45,15 @@ let activeName = ref('risk')
   :deep(.el-tabs__header) {
     margin: 0;
   }
+  :deep(.el-tabs__item) {
+    font-size: 16px;
+    line-height: 55px;
+  }
 }
 .head {
   width: 100%;
   padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
   &-title {
     font-size: 20px;
     font-weight: bold;
