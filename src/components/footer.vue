@@ -1,7 +1,7 @@
 <template>
     <div class="footer">
         <el-row :gutter="20" style="padding-left: 20px;">
-            <el-col :span="6" :offset="0">
+            <el-col :span="8" :offset="0">
                 <div class="row">
                     <Position style="width: 2em; height: 2em; margin-right: 8px; color: #fff;" />
                     <div>
@@ -11,7 +11,7 @@
                     </div>
                 </div>
             </el-col>
-            <el-col :span="6" :offset="0">
+            <el-col :span="8" :offset="0">
                 <div class="row">
                     <Phone style="width: 2em; height: 2em; margin-right: 8px; color: #fff;" />
                     <div>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </el-col>
-            <el-col :span="6" :offset="0">
+            <el-col :span="8" :offset="0">
                 <div class="row">
                     <Message style="width: 2em; height: 2em; margin-right: 8px; color: #fff;" />
                     <div>
@@ -30,20 +30,19 @@
                     </div>
                 </div>
             </el-col>
-            <el-col :span="6" :offset="0">
+            <!-- <el-col :span="6" :offset="0">
                 <div class="row">
-                    <!-- <Message style="width: 1em; height: 1em; margin-right: 8px" /> -->
                     <div>
                         <div class="title">下载APP</div>
                         <div class="info">扫描二维码</div>
                     </div>
                 </div>
-            </el-col>
+            </el-col> -->
         </el-row>
         <div class="descs">
             <div class="desc">工信部ICP备案号码: 京ICP被12002951号-5</div>
             <div class="desc">Copyright @2010 by FUWAI Hospital 版权所有: 阜外医院(本网站所有内容未经许可, 不得以任何形式进行转载)</div>
-            <div class="desc">本网站已被访问 742727次</div>
+            <!-- <div class="desc">本网站已被访问 742727次</div> -->
         </div>
     </div>
 </template>
@@ -72,7 +71,7 @@ import { Position, Message, Phone } from '@element-plus/icons-vue';
     line-height: 18px;
 }
 .descs {
-    padding-top: 30px;
+    padding: 30px 0 20px;
 }
 .desc {
     font-size: 14px;

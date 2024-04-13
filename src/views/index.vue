@@ -2,17 +2,17 @@
   <div class="page">
     <div class="row head">
       <div style="margin-left: 1em;">
-        <div class="head-title">心脑血管病风险评估</div>
-        <div class="head-title_bottom">PREDICTION FOR ASCVD RISK</div>
+       <img src="../assets/image/logo.png" alt="" style="width: 200px;">
       </div>
     </div>
     <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick" stretch>
       <el-tab-pane label="风险评估" name="risk"><risk></risk></el-tab-pane>
+      <el-tab-pane label="健康建议" name="advice"><advice></advice></el-tab-pane>
       <el-tab-pane label="项目介绍" name="introduce"><introduce /></el-tab-pane>
       <el-tab-pane label="健康指导" name="health"><health></health> </el-tab-pane>
-      <el-tab-pane label="相关研究" name="research"> <research></research> </el-tab-pane>
+      <!-- <el-tab-pane label="相关研究" name="research"> <research></research> </el-tab-pane> -->
       <el-tab-pane label="关于我们" name="about"><about></about> </el-tab-pane>
-      <el-tab-pane label="登录|注册" name="login"> <login></login> </el-tab-pane>
+      <!-- <el-tab-pane label="登录|注册" name="login"> <login></login> </el-tab-pane> -->
     </el-tabs>
   </div>
 </template>
@@ -20,11 +20,12 @@
 <script setup>
 // import router from '../router/index';
 import risk from './risk.vue';
+import advice from './advice.vue';
 import introduce from './introduce.vue';
-import research from './research.vue';
+// import research from './research.vue';
 import health from './health.vue';
 import about from './about.vue';
-import login from './login.vue';
+// import login from './login.vue';
 let activeName = ref('risk')
 </script>
 

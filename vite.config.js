@@ -70,21 +70,21 @@ export default defineConfig({
     // host: true,
     // 热更新
     hmr: true,
-    // //设为 true 时若端口已被占用则会直接退出，而不是尝试下一个可用端口
+    //设为 true 时若端口已被占用则会直接退出，而不是尝试下一个可用端口
     // strictPort: false,
     // /** 是否自动打开浏览器 */
     // open: false,
     // /** 跨域设置允许 */
     // cors: true,
-    // // port: 80,
-    // //自定义代理规则
-    // proxy: {
-    //   // 选项写法
-    //   "api": {
-    //     target: "http://10.188.128.54:9050",
-    //     changeOrigin: true,
-    //     rewrite: (path) => path.replace('/\/api/', "/api"),
-    //   },
-    // },
+    // port: 80,
+    //自定义代理规则
+    proxy: {
+      // 选项写法
+      "/api": {
+        target: "http://115.159.69.165:8081",
+        changeOrigin: true,
+        rewrite: (path) => path.replace('/\/api/', "/api"),
+      },
+    },
   },
 })
