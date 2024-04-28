@@ -3,30 +3,37 @@
     <div class="row head">
       <div style="margin-left: 1em;">
        <img src="../assets/image/logo.png" alt="" style="width: 200px;">
+       <img src="../assets/image/sub-logo.png" alt="" style="width: 65px; margin-left: 20px;">
       </div>
     </div>
-    <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick" stretch>
-      <el-tab-pane label="风险评估" name="risk"><risk></risk></el-tab-pane>
-      <el-tab-pane label="健康建议" name="advice"><advice></advice></el-tab-pane>
-      <el-tab-pane label="项目介绍" name="introduce"><introduce /></el-tab-pane>
-      <el-tab-pane label="健康指导" name="health"><health></health> </el-tab-pane>
+    <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick($event)" stretch>
+      <el-tab-pane label="风险评估" name="risk"></el-tab-pane>
+      <el-tab-pane label="健康建议" name="advice" :flag="flag"></el-tab-pane>
+      <el-tab-pane label="项目介绍" name="introduce"></el-tab-pane>
+      <el-tab-pane label="健康指导" name="health"></el-tab-pane>
       <!-- <el-tab-pane label="相关研究" name="research"> <research></research> </el-tab-pane> -->
-      <el-tab-pane label="关于我们" name="about"><about></about> </el-tab-pane>
+      <el-tab-pane label="关于我们" name="about"></el-tab-pane>
       <!-- <el-tab-pane label="登录|注册" name="login"> <login></login> </el-tab-pane> -->
     </el-tabs>
+    <component :is="obj[activeName]" :flag="flag" @handleClick="handleClick"></component>
   </div>
 </template>
 
 <script setup>
-// import router from '../router/index';
-import risk from './risk.vue';
-import advice from './advice.vue';
-import introduce from './introduce.vue';
-// import research from './research.vue';
-import health from './health.vue';
-import about from './about.vue';
-// import login from './login.vue';
-let activeName = ref('risk')
+let obj = reactive({
+  'risk': defineAsyncComponent(() => import('./risk.vue')),
+  'advice': defineAsyncComponent(() => import('./advice.vue')),
+  'introduce': defineAsyncComponent(() => import('./introduce.vue')),
+  'health': defineAsyncComponent(() => import('./health.vue')),
+  'about': defineAsyncComponent(() => import('./about.vue')),
+})
+let activeName = ref('risk');
+let flag = ref(null);
+const handleClick = (name, f = null) => {
+  console.log(name, f)
+  activeName.value = name;
+  flag.value = f;
+}
 </script>
 
 <style lang="scss" scoped>

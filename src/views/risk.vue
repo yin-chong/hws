@@ -1,9 +1,9 @@
 <template>
   <div class="main">
     <div class="content">
-      <el-carousel motion-blur>
-        <el-carousel-item v-for="item in carousels" :key="item">
-          <el-image :src="item" alt="" style="width: 100%; height: 380px">
+      <el-carousel motion-blur style="height: 450px;">
+        <el-carousel-item v-for="item in carousels" :key="item" style="height: 450px;">
+          <el-image :src="item" alt="" style="width: 100%; height: 450px">
           </el-image>
           <!-- <h3 class="small justify-center" text="2xl">{{ item }}</h3> -->
         </el-carousel-item>
@@ -227,6 +227,11 @@
 <script setup>
 import myfooter from "../components/footer.vue";
 import mytitle from "../components/mytitle.vue";
+import carousel1 from "../assets/image/carousel1.jpg";
+import carousel2 from "../assets/image/carousel2.jpg";
+import carousel3 from "../assets/image/carousel3.jpg";
+import carousel4 from "../assets/image/carousel4.jpg";
+import carousel5 from "../assets/image/carousel5.jpg";
 const { proxy } = getCurrentInstance();
 let sex = ref("0"); // 性别
 let age = ref(null); // 年龄
@@ -242,8 +247,7 @@ let miRNA16 = ref(null); // MiRNA-16
 let plt = ref(null); // 血小板计数
 let tbil = ref(null); // 总胆红素
 const carousels = reactive([
-  "https://cvdrisk.com.cn/uploadedImage/20220725035012235.jpg",
-  "https://cvdrisk.com.cn/uploadedImage/20220725035022420.jpg",
+  carousel1, carousel2, carousel3, carousel4, carousel5,
 ]);
 const submit = async () => {
   if (Number(age.value) < 20 || Number(age.value) > 85)
@@ -265,7 +269,6 @@ const submit = async () => {
   };
   let access = true;
   for (let key in params) {
-    console.log(params[key], key);
     if (params[key] == null || params[key] == "") {
       console.log(params[key], key);
       access = false;
@@ -276,8 +279,13 @@ const submit = async () => {
   if (access) {
     const [err, res] = await proxy.$api.getScore(params);
     if (res) {
-      if (res.code == 200) return ElMessage.success("提交成功!");
-      return ElMessage.warning(res.message);
+      if (res.code == 200) {
+        ElMessage.success("提交成功!");
+        const { flag } = res.data;
+        proxy.$emit('handleClick', 'advice', flag);
+      } else {
+        return ElMessage.warning(res.message);
+      }
     }
   }
 };

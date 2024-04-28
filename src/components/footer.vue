@@ -7,7 +7,8 @@
                     <div>
                         <div class="title">单位地址</div>
                         <div class="info">广州市天河区天河路600号</div>
-                        <div class="info">广州市肝病重点实验室</div>
+                        <div class="info">中山大学附属第三医院</div>
+                        <div class="info">广东省肝脏疾病研究重点实验室</div>
                     </div>
                 </div>
             </el-col>
@@ -16,8 +17,8 @@
                     <Phone style="width: 2em; height: 2em; margin-right: 8px; color: #fff;" />
                     <div>
                         <div class="title">联系方式</div>
-                        <div class="info">电话: 010-60866572</div>
-                        <div class="info">邮箱: leeljx@hotmail.com</div>
+                        <div class="info">电话: 020-85252700</div>
+                        <div class="info">邮箱: miR_HCCrisk@163.com</div>
                     </div>
                 </div>
             </el-col>
@@ -26,7 +27,7 @@
                     <Message style="width: 2em; height: 2em; margin-right: 8px; color: #fff;" />
                     <div>
                         <div class="title">邮政编码</div>
-                        <div class="info">102300</div>
+                        <div class="info">510630</div>
                     </div>
                 </div>
             </el-col>
@@ -40,9 +41,8 @@
             </el-col> -->
         </el-row>
         <div class="descs">
-            <div class="desc">工信部ICP备案号码: 京ICP被12002951号-5</div>
-            <div class="desc">Copyright @2010 by FUWAI Hospital 版权所有: 阜外医院(本网站所有内容未经许可, 不得以任何形式进行转载)</div>
-            <!-- <div class="desc">本网站已被访问 742727次</div> -->
+            <div class="desc"></div>
+            <div class="desc"></div>
         </div>
     </div>
 </template>

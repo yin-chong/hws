@@ -4,10 +4,15 @@ import AutoImport from 'unplugin-auto-import/vite';
 // import viteCompression from 'vite-plugin-compression';
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import legacy from '@vitejs/plugin-legacy';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    }),
     vue(),
     // viteCompression(),
     //页面自动引入vue 插件
@@ -47,14 +52,14 @@ export default defineConfig({
     reportCompressedSize: false, // 关闭文件计算
     sourcemap: false, // 关闭生成map文件
   },
-  output: {
-    // 最小化拆分包
-    manualChunks(id) {
-      if (id.includes('node_modules')) {
-        return id.toString().split('node_modules/')[1].split('/')[0].toString();
-      }
-    }
-  },
+  // output: {
+  //   // 最小化拆分包
+  //   manualChunks(id) {
+  //     if (id.includes('node_modules')) {
+  //       return id.toString().split('node_modules/')[1].split('/')[0].toString();
+  //     }
+  //   }
+  // },
   css: {
     preprocessorOptions: {
       scss: {
@@ -81,7 +86,7 @@ export default defineConfig({
     proxy: {
       // 选项写法
       "/api": {
-        target: "http://115.159.69.165:8081",
+        target: "http://47.121.31.4:8151",
         changeOrigin: true,
         rewrite: (path) => path.replace('/\/api/', "/api"),
       },
